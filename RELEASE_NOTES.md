@@ -1,21 +1,32 @@
-### 0.5.1 TBP
+### 0.6.0 (Released 2025-1-7)
 * Additions:
-    * latest commit #54feda1a
+    * latest commit #529c2c01
     * [[#7aa79c61](https://github.com/fslaborg/FSharp.Stats/commit/7aa79c61d71534623276d4a709a7f5d2ce0ff796)] add multinomial distribution
-    * [[#bb43b03b](https://github.com/fslaborg/FSharp.Stats/commit/bb43b03bc2c13d05ee0c975e79c5fe2bcba75ba2)] add NMI
-    * [[#9919c4d5](https://github.com/fslaborg/FSharp.Stats/commit/9919c4d5c5efd8b0c222ade67ce73083ebc3286c)] documentation, tests, clean up
-    * [[#4b6f1cf7](https://github.com/fslaborg/FSharp.Stats/commit/4b6f1cf783b79b34e2d2c9d682c21d55f8606f6b)] add KNN classifier and logic to ML Unsupervised
+    * [[#bb43b03b](https://github.com/fslaborg/FSharp.Stats/commit/bb43b03bc2c13d05ee0c975e79c5fe2bcba75ba2)] add Normalized Mutual Information #313
+    * [[#4b6f1cf7](https://github.com/fslaborg/FSharp.Stats/commit/4b6f1cf783b79b34e2d2c9d682c21d55f8606f6b)] add KNN classifier
     * [[#9ba92b6f](https://github.com/fslaborg/FSharp.Stats/commit/9ba92b6f47043d7a7ccdc933a18dad4f2ce705df)] add minkowski distance
     * [[#65a0a690](https://github.com/fslaborg/FSharp.Stats/commit/65a0a6900576a6a7fe1ecaaf150102592de5bca7)] add Bezier interpolation
     * [[#b7792aeb](https://github.com/fslaborg/FSharp.Stats/commit/b7792aeb705fc404530ce15849f818ff139b4f76)] add hamming distance functions
-    * [[#94716bd1](https://github.com/fslaborg/FSharp.Stats/commit/94716bd1bde514539e142058f152492b0549bb92)] Using `Interval` instead of tuples in distr.'s supports
-    * [[#59eaf551](https://github.com/fslaborg/FSharp.Stats/commit/59eaf551b4ebb804d733763e3e7281747ba01873)] add step interpolation docu
     * [[#414d461e](https://github.com/fslaborg/FSharp.Stats/commit/414d461e9bee40f5fed53994e196f59ccee8272e)] add cubic spline with slopes
     * [[#6a9038e9](https://github.com/fslaborg/FSharp.Stats/commit/6a9038e9b2c04da4ec35bb4e65f35adecd55c158)] add interpolation differentiation add interpolation integration
     * [[#8fb5d6dd](https://github.com/fslaborg/FSharp.Stats/commit/8fb5d6dd07ff213a4e91b618fb2e654bc6147985)] add step interpolation
+    * [[#f7a32615](https://github.com/fslaborg/FSharp.Stats/commit/f7a326151453a69f0a39dc7db16933bb4a9865e1)] rewrite kendall add tauc and taua variants
+    * [[#57f89394](https://github.com/fslaborg/FSharp.Stats/commit/57f8939410a549a539920d3e84722dde2ba3a896)] add Generalised Linear Models to FSharpStats (#334)
 * Bugfixes:
     * [[#63d8aa19](https://github.com/fslaborg/FSharp.Stats/commit/63d8aa19e2ac73af1baf818b52a58ec3f9472c30)] fix setColM as seen in #315
-    * [[#0ac2a52d](https://github.com/fslaborg/FSharp.Stats/commit/0ac2a52de81b3a8fe973af37e35b7b6e48973160)] fix Akima interpolation
+    * [[#0ac2a52d](https://github.com/fslaborg/FSharp.Stats/commit/0ac2a52de81b3a8fe973af37e35b7b6e48973160)] fix Akima interpolation slope calculation
+    * [[#73937671](https://github.com/fslaborg/FSharp.Stats/commit/73937671343601aa53ace914f0e76091fa5d196d)] fix JaggedCollection.transpose
+    * [[#2262dff8](https://github.com/fslaborg/FSharp.Stats/commit/2262dff82031c0fb4f2188d049e5a23490d0968b)] fix compiler warnings
+    * [[#d6034f80](https://github.com/fslaborg/FSharp.Stats/commit/d6034f80389b26ca288637ad2616fcb1e7892409)] fix Seq.mean parameter name
+* Docu:
+    * [[#59eaf551](https://github.com/fslaborg/FSharp.Stats/commit/59eaf551b4ebb804d733763e3e7281747ba01873)] add step interpolation docu
+    * [[#557ee8ab](https://github.com/fslaborg/FSharp.Stats/commit/557ee8ab1086c359c6ed97abe9d4421502e86bcd)] add multinomial docu
+    * [[#b0c973ac](https://github.com/fslaborg/FSharp.Stats/commit/b0c973ac4e49dfacc3b5fc8d41b71d182ce2a84f)] update Random docs
+    * [[#d086f3d5](https://github.com/fslaborg/FSharp.Stats/commit/d086f3d526f8a8b3df09b9522e72e0a9f12fe942)] update Interval docs
+* Rework
+    * [[#d086f3d5](https://github.com/fslaborg/FSharp.Stats/commit/529c2c017b9d3ae39a1372964fac24c775b851ed)] rename Imputation module
+    * [[#13294547](https://github.com/fslaborg/FSharp.Stats/commit/1329454756245b339d744bb2b4d80d9b497a76fe)] remove AutoOpen on Seq, List and Array modules #333
+    
 
 ### 0.5.0 (Released 2022-8-4)
 * Additions:
