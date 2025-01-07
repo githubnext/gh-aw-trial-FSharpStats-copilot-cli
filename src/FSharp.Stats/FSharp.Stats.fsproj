@@ -156,6 +156,7 @@
     <!-- ML -->
     <Compile Include="ML\SurprisalAnalysis.fs" />
     <Compile Include="ML\SimilarityMetrics.fs" />
+    <Compile Include="ML\Imputation.fs" />
     <Compile Include="ML\Impute.fs" />
     <Compile Include="ML\DistanceMetrics.fs" />
     <!-- ML / Unsupervised -->

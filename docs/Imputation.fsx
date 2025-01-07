@@ -62,8 +62,8 @@ Missing data imputation based on the k-nearest neighbour algorithm:
 *)
 
 // init kNearest MatrixBaseImpute
-let kn : Impute.MatrixBaseImputation<float[],float> = Impute.kNearestImpute 2
-let imputedData = Impute.imputeBy kn Ops.isNan data
+let kn : Imputation.MatrixBaseImputation<float[],float> = Imputation.kNearestImpute 2
+let imputedData = Imputation.imputeBy kn Ops.isNan data
 
 (*** hide ***)
 let imputedDataMatrix = "k nearest neighbours imputed data\r\n" + FSharp.Stats.FSIPrinters.matrix (matrix imputedData)
@@ -79,10 +79,10 @@ let imputedDataMatrix = "k nearest neighbours imputed data\r\n" + FSharp.Stats.F
 *)
 
 // init random VectorBaseImpute
-let rnd = Impute.rnd (System.Random())
+let rnd = Imputation.rnd (System.Random())
 
-let rndRowWise = Impute.imputeRowWiseBy rnd Ops.isNan data
-let rndColWise = Impute.imputeColWiseBy rnd Ops.isNan data
+let rndRowWise = Imputation.imputeRowWiseBy rnd Ops.isNan data
+let rndColWise = Imputation.imputeColWiseBy rnd Ops.isNan data
 
 (*** hide ***)
 let rndRowDataMatrix = "rndRowDataMatrix imputed data\r\n" + FSharp.Stats.FSIPrinters.matrix (matrix rndRowWise)
@@ -100,8 +100,8 @@ let rndColDataMatrix = "rndColDataMatrix imputed data\r\n" + FSharp.Stats.FSIPri
 
 *)
 
-let normalRowWise = Impute.imputeRowWiseBy Impute.normal Ops.isNan data
-let normalColWise = Impute.imputeColWiseBy Impute.normal Ops.isNan data
+let normalRowWise = Imputation.imputeRowWiseBy Imputation.normal Ops.isNan data
+let normalColWise = Imputation.imputeColWiseBy Imputation.normal Ops.isNan data
 
 
 (*** hide ***)
