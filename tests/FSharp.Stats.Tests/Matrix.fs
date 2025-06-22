@@ -1183,6 +1183,37 @@ let floatImplementationDenseTests =
                 testCase "getRows" <| fun () ->
                     ()
             ]
+            testList "removeCols" [
+                testCase "removeColAt" <| fun () ->
+                    let m =
+                        [|
+                            [|0.;1.|]
+                            [|0.;3.|]
+                            [|0.;5.|]
+                        |] |> Matrix.ofJaggedArray
+                    let actual = Matrix.removeColAt 0 m
+                    let expected =
+                        [|
+                            [|1.|]
+                            [|3.|]
+                            [|5.|]
+                        |] |> Matrix.ofJaggedArray
+                    Expect.equal actual expected "Matrix.removeColAt did not return the correct matrix"
+            ]
+            testList "removeRows" [
+                testCase "removeRowAt" <| fun () ->
+                    let m =
+                        [|
+                            [|0.;0.;0.;|]
+                            [|1.;3.;5.;|]
+                        |] |> Matrix.ofJaggedArray
+                    let actual = Matrix.removeRowAt 1 m
+                    let expected =
+                        [|
+                            [|0.;0.;0.|]
+                        |] |> Matrix.ofJaggedArray
+                    Expect.equal actual expected "Matrix.removeRowAt did not return the correct matrix"
+            ]
             testList "getRegion" [
                 
                 testCase "get Region" <| fun () ->
