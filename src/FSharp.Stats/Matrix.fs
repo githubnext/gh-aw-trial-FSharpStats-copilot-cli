@@ -1493,7 +1493,7 @@ module Matrix =
                 else
                     loop (nColI) (colI-1)
 
-        loop (nRows-2) (nRows-1)
+        loop (nCols-2) (nCols-1)
 
     /// <summary>Splits a matrix along row direction according to given indices. Returns (matrix including rows according to indices, rest)</summary>
     /// <remarks></remarks>
