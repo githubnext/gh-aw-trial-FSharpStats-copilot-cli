@@ -1197,7 +1197,7 @@ let floatImplementationDenseTests =
                             [|1.|]
                             [|3.|]
                             [|5.|]
-                        |]
+                        |] |> Matrix.ofJaggedArray
                     Expect.equal actual expected "Matrix.removeColAt did not return the correct matrix"
             ]
             testList "removeRows" [
@@ -1211,7 +1211,7 @@ let floatImplementationDenseTests =
                     let expected =
                         [|
                             [|0.;0.;0.|]
-                        |]
+                        |] |> Matrix.ofJaggedArray
                     Expect.equal actual expected "Matrix.removeRowAt did not return the correct matrix"
             ]
             testList "getRegion" [
