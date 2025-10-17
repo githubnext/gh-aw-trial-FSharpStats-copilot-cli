@@ -23,6 +23,7 @@
     <Compile Include="Matrix.fs" />
     <Compile Include="ML.fs" />
     <Compile Include="Optimization.fs" />
+    <Compile Include="Ops.fs" />
     <Compile Include="Array.fs" />
     <Compile Include="JaggedCollection.fs" />
     <Compile Include="Seq.fs" />
