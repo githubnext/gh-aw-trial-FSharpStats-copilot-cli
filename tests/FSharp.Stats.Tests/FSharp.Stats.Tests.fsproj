@@ -12,6 +12,7 @@
     <Compile Include="Interval.fs" />
     <Compile Include="ConfidenceInterval.fs" />
     <Compile Include="Formatting.fs" />
+    <Compile Include="Geometry.fs" />
     <Compile Include="LinearAlgebra.fs" />
     <Compile Include="Correlation.fs" />
     <Compile Include="Covariance.fs" />
