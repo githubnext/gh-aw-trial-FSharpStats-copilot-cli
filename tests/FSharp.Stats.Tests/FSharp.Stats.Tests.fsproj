@@ -33,6 +33,7 @@
     <Compile Include="JaggedCollection.fs" />
     <Compile Include="Seq.fs" />
     <Compile Include="List.fs" />
+    <Compile Include="Map.fs" />
     <Compile Include="Signal.fs" />
     <Compile Include="SpecialFunctions.fs" />
     <Compile Include="Integration.fs" />
