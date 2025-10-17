@@ -38,6 +38,7 @@
     <Compile Include="SpecialFunctions.fs" />
     <Compile Include="Integration.fs" />
     <Compile Include="Testing.fs" />
+    <Compile Include="TestingCorrelation.fs" />
     <Compile Include="Interpolation.fs" />
     <Compile Include="Fitting.fs" />
 	  <Compile Include="GeneralisedLinearModels.fs" />
