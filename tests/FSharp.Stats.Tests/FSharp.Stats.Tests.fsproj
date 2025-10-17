@@ -27,6 +27,7 @@
     <Compile Include="Optimization.fs" />
     <Compile Include="Ops.fs" />
     <Compile Include="Permutation.fs" />
+    <Compile Include="Precision.fs" />
     <Compile Include="Array.fs" />
     <Compile Include="JaggedCollection.fs" />
     <Compile Include="Seq.fs" />
