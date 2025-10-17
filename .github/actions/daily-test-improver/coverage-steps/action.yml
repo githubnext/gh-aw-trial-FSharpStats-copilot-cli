@@ -37,7 +37,7 @@ runs:
       shell: bash
 
     # Step 5: Run tests with AltCover for code coverage
-    # AltCover generates a Cobertura XML report at ./codeCov.xml
+    # AltCover generates a Cobertura XML report at tests/FSharp.Stats.Tests/codeCov.xml
     # This matches the existing CI configuration in build-and-test.yml
     - name: Run tests with coverage
       run: |
@@ -50,16 +50,16 @@ runs:
           --configuration Release \
           --logger "console;verbosity=detailed" >> coverage-steps.log 2>&1
         echo "Tests completed" >> coverage-steps.log 2>&1
-        echo "Coverage report generated at: ./codeCov.xml" >> coverage-steps.log 2>&1
+        echo "Coverage report generated at: tests/FSharp.Stats.Tests/codeCov.xml" >> coverage-steps.log 2>&1
       shell: bash
 
     # Step 6: Verify coverage report was generated
     - name: Verify coverage report
       run: |
         echo "========== Verifying coverage report ==========" >> coverage-steps.log 2>&1
-        if [ -f "codeCov.xml" ]; then
-          echo "Coverage report found at codeCov.xml" >> coverage-steps.log 2>&1
-          echo "File size: $(wc -c < codeCov.xml) bytes" >> coverage-steps.log 2>&1
+        if [ -f "tests/FSharp.Stats.Tests/codeCov.xml" ]; then
+          echo "Coverage report found at tests/FSharp.Stats.Tests/codeCov.xml" >> coverage-steps.log 2>&1
+          echo "File size: $(wc -c < tests/FSharp.Stats.Tests/codeCov.xml) bytes" >> coverage-steps.log 2>&1
         else
           echo "WARNING: Coverage report not found at expected location" >> coverage-steps.log 2>&1
           exit 1
@@ -73,5 +73,5 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: coverage
-        path: codeCov.xml
+        path: tests/FSharp.Stats.Tests/codeCov.xml
         retention-days: 30
