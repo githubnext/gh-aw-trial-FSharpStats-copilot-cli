@@ -1,0 +1,77 @@
+name: 'Build and Generate Coverage Report'
+description: 'Builds FSharp.Stats, runs tests with AltCover, and generates a Cobertura coverage report'
+
+runs:
+  using: "composite"
+  steps:
+    # Step 1: Setup .NET 6
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.x'
+      shell: bash
+
+    # Step 2: Restore local tools (including AltCover)
+    # This step installs tools defined in .config/dotnet-tools.json
+    - name: Restore local tools
+      run: |
+        echo "========== Restoring local tools ==========" >> coverage-steps.log 2>&1
+        dotnet tool restore >> coverage-steps.log 2>&1
+        echo "Tool restore completed" >> coverage-steps.log 2>&1
+      shell: bash
+
+    # Step 3: Restore NuGet packages
+    - name: Restore dependencies
+      run: |
+        echo "========== Restoring dependencies ==========" >> coverage-steps.log 2>&1
+        dotnet restore >> coverage-steps.log 2>&1
+        echo "Dependencies restored" >> coverage-steps.log 2>&1
+      shell: bash
+
+    # Step 4: Build the solution in Release configuration
+    - name: Build solution
+      run: |
+        echo "========== Building solution ==========" >> coverage-steps.log 2>&1
+        dotnet build -c Release --no-restore >> coverage-steps.log 2>&1
+        echo "Build completed" >> coverage-steps.log 2>&1
+      shell: bash
+
+    # Step 5: Run tests with AltCover for code coverage
+    # AltCover generates a Cobertura XML report at ./codeCov.xml
+    # This matches the existing CI configuration in build-and-test.yml
+    - name: Run tests with coverage
+      run: |
+        echo "========== Running tests with coverage ==========" >> coverage-steps.log 2>&1
+        dotnet test tests/FSharp.Stats.Tests/FSharp.Stats.Tests.fsproj \
+          /p:AltCover=true \
+          /p:AltCoverCobertura=codeCov.xml \
+          /p:AltCoverForce=true \
+          --no-build \
+          --configuration Release \
+          --logger "console;verbosity=detailed" >> coverage-steps.log 2>&1
+        echo "Tests completed" >> coverage-steps.log 2>&1
+        echo "Coverage report generated at: ./codeCov.xml" >> coverage-steps.log 2>&1
+      shell: bash
+
+    # Step 6: Verify coverage report was generated
+    - name: Verify coverage report
+      run: |
+        echo "========== Verifying coverage report ==========" >> coverage-steps.log 2>&1
+        if [ -f "codeCov.xml" ]; then
+          echo "Coverage report found at codeCov.xml" >> coverage-steps.log 2>&1
+          echo "File size: $(wc -c < codeCov.xml) bytes" >> coverage-steps.log 2>&1
+        else
+          echo "WARNING: Coverage report not found at expected location" >> coverage-steps.log 2>&1
+          exit 1
+        fi
+      shell: bash
+
+    # Step 7: Upload coverage report as artifact
+    # The coverage report is uploaded as an artifact named "coverage"
+    # It can be downloaded and analyzed after the workflow completes
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage
+        path: codeCov.xml
+        retention-days: 30
