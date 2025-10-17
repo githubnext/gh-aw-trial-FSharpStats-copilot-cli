@@ -42,6 +42,7 @@
 	  <Compile Include="GeneralisedLinearModels.fs" />
 	  <Compile Include="Quantile.fs" />
     <Compile Include="Rank.fs" />
+    <Compile Include="RunningStats.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
   <ItemGroup>
